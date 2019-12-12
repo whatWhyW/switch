@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="Shortcut Icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon" />
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .switch-box {
+            width: 420px;
+            height: 50vh;
+            border-radius: 18px;
+            padding: 20px;
+            margin: 20vh auto;
+            background: #f5f5f5;
+            text-align: center;
+        }
+        .switch-boxs {
+            height: 50px;
+        }
+        .switch {
+            float: right;
+            width: 44px;
+            height: 22px;
+            position: relative;
+            border: 1px solid #dfdfdf;
+            background-color: #fdfdfd;
+            box-shadow: #dfdfdf 0 0 0 0 inset;
+            border-radius: 20px;
+            background-clip: content-box;
+            display: inline-block;
+            -webkit-appearance: none;
+            user-select: none;
+            outline: none !important;
+        }
+        .switch:before {
+            content: attr(data-text);
+            text-align: center;
+            line-height: 20px;
+            color: #999999;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+        .switch:checked {
+            border-color: #253DA3;
+            box-shadow: #2E84FF 0 0 0 16px inset;
+            background-color: #2E84FF;
+        }
+        .switch:checked:before {
+            left: 22px;
+        }
+        .switch.switch-admin {
+            transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+        }
+        .switch.switch-admin:before {
+            transition: left 0.3s;
+        }
+        .switch.switch-admin:checked {
+            box-shadow: #2E84FF 0 0 0 16px inset;
+            background-color: #2E84FF;
+            transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+        }
+        .switch.switch-admin:checked:before {
+            transition: left 0.3s;
+        }
+
+        .font-title {
+            font-size: 22px;
+            color: #999999;
+        }
+        .switch-control {
+            font-size: 32px;
+            height: 80px;
+            line-height: 80px;
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="switch-box">
+        <div class="switch-boxs"><input class="switch switch-admin" type="checkbox" data-text="关"></input></div>
+        <div class="font-title">TO BE OR NOT TO BE, THAT IS A QUESTION ?</div>
+        <div class="switch-control">NOT TO BE</div>
+    </div>
+</body>
+<script>
+    let flag = 1;
+    var switchs = document.querySelector('.switch');
+    switchs.onclick = function() {
+        flag *= -1;
+        if (flag > 0) {
+            document.querySelectorAll('.switch')[0].setAttribute('data-text', '关');
+            document.querySelectorAll('.switch-control')[0].innerHTML = 'NOT TO BE';
+            document.querySelectorAll('.switch-control')[0].style.color = 'red';
+        } else {
+            document.querySelectorAll('.switch')[0].setAttribute('data-text', '开');
+            document.querySelectorAll('.switch-control')[0].innerHTML = 'TO BE';
+            document.querySelectorAll('.switch-control')[0].style.color = 'green';
+        }
+    }
+</script>
+</html>
