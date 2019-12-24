@@ -24,12 +24,11 @@
             height: 50px;
         }
         .switch {
-            float: right;
             width: 44px;
             height: 22px;
             position: relative;
             border: 1px solid #dfdfdf;
-            background-color: #fdfdfd;
+            background-color: #dddddd;
             box-shadow: #dfdfdf 0 0 0 0 inset;
             border-radius: 20px;
             background-clip: content-box;
@@ -39,7 +38,7 @@
             outline: none !important;
         }
         .switch:before {
-            content: attr(data-text);
+            content: '';
             text-align: center;
             line-height: 20px;
             color: #999999;
@@ -52,14 +51,24 @@
             background-color: #fff;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
         }
+        .switch::after {
+            left: 23px;
+            content: attr(data-text);
+            position: absolute;
+            color: #fff;
+        }
         .switch:checked {
             border-color: #253DA3;
             box-shadow: #2E84FF 0 0 0 16px inset;
             background-color: #2E84FF;
         }
         .switch:checked:before {
-            left: 22px;
+            left: 22.5px;
         }
+        .switch:checked:after {
+            left: 6px;
+        }
+
         .switch.switch-admin {
             transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
         }
